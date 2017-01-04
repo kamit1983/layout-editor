@@ -96,8 +96,8 @@ export class AppComponent  {
           { name: "Banana", type: "fruit" },
           { name: "Pear", type: "fruit" }];
 
-      droppedFruits = [];
-      droppedVegetables = [];
+      droppedFruits:item[] = [];
+      droppedVegetables:item[] = [];
 
       onFruitDrop(e: any) {
           this.droppedFruits.push(e.dragData);
@@ -115,4 +115,8 @@ export class AppComponent  {
           }).indexOf(item.name);
           list.splice(index, 1);
       }
+}
+interface item {
+    name: string;
+    type: string;
 }
