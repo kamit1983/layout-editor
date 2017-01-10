@@ -6,7 +6,7 @@ import { Modal } from "ng2-modal";
   template: `
 
         <modal #myModal1
-          modalClass="modal-lg"
+          modalClass="large-Modal"
         >
             <modal-header>
                 <h3>Modal header</h3>
@@ -20,9 +20,10 @@ import { Modal } from "ng2-modal";
         </modal>
   `,
   styles: [`
-    .modal-le{
-      width: 99%;
-    }
+    :host /deep/ .large-Modal {
+       width: 99%;
+       margin-top: 10px;
+     }
    `
     ]
 })
