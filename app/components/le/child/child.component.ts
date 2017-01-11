@@ -1,24 +1,21 @@
 import { Component, Renderer, ViewChild, ElementRef, Input } from '@angular/core';
 import { Modal } from "ng2-modal";
-import {ChildComponent} from './child/child.component'
 
 @Component({
-  selector: 'le',
+  selector: 'child',
   template: `
 
-        <modal #myModal1
-          modalClass="large-Modal"
+        <modal #myModal2
+          modalClass="modal-child"
         >
             <modal-header>
                 <h3>Modal header</h3>
             </modal-header>
             <modal-content>
                 Hello Modal!
-                <button class="btn btn-primary" (click)="onClick()">open my modal</button>
-                  <child [id]=id1></child>
             </modal-content>
             <modal-footer>
-                <button class="btn btn-primary" (click)="myModal1.close()">close</button>
+                <button class="btn btn-primary" (click)="myModal2.close()">close</button>
             </modal-footer>
         </modal>
   `,
@@ -30,21 +27,15 @@ import {ChildComponent} from './child/child.component'
    `
     ]
 })
-export class LeComponent  {
+export class ChildComponent  {
   name = 'Angular';
-  id1 = '';
   @Input() id: String;
-  @ViewChild('myModal1') myModal1:Modal;
+  @ViewChild('myModal2') myModal2:Modal;
   ngOnChanges(){
     if(this.id !== ''){
-      this.myModal1.open();
-      this.id1 = '';
+      this.myModal2.open();
     }
     console.log(this.id);
-  }
-
-  onClick(){
-    this.id1 = this.id1 + '2';
   }
 
 }
